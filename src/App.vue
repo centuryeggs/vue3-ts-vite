@@ -12,8 +12,8 @@ export default defineComponent({
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <Comp></Comp>
+  <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
+  <Comp :title-info="{ value: '待办事项', color: 'green'}"></Comp>
 </template>
 
 <style>
