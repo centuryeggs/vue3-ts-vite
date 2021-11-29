@@ -16,7 +16,7 @@
   </div>
 
   <!-- 待办事项列表 -->
-  <div v-for="item in items" :key="item.id">
+  <div v-for="item in todos" :key="item.id">
     {{item.name}}
   </div>
 </template>
@@ -25,8 +25,7 @@
 import { ref, computed } from 'vue'
 import type { PropType } from 'vue'
 import type { TitleInfo, Todo } from '../types'
-import { useStore } from 'vuex'
-import { key } from '../store'
+import { useStore } from '../store'
 
 defineProps({
   titleInfo: {
@@ -35,27 +34,29 @@ defineProps({
   }
 })
 
-const store = useStore(key)
+const store = useStore()
 const counter = computed(() => store.state.counter)
 const doubleCounter = computed(() => counter.value * 2)
 
-const items = ref([] as Todo[])
+const todos = computed(() => store.state.todos?.todos)
 const todoName = ref('')
 
-items.value.push({
-  id: 1,
-  name: 'Learn Vue',
-  completed: false
-})
+store.dispatch('todos/initTodo')
+
+// todos.value.push({
+//   id: 1,
+//   name: 'Learn Vue',
+//   completed: false
+// })
 const createTodo = (todoName: string): Todo => {
   return {
-    id: items.value.length + 1,
+    id: todos.value!.length + 1,
     name: todoName,
     completed: false
   }
 }
 const addTodo = (todo: Todo): void => {
-  items.value.push(todo)
+  todos.value!.push(todo)
   todoName.value = ''
 }
 
