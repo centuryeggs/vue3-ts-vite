@@ -30,7 +30,7 @@ export default {
       //     }
       //   ] as Todo[])
       // }, 500)
-      http.get<Todo>('https://jsonplaceholder.typicode.com/todos/1').then(res => {
+      http.get<Todo>('/todos/1').then(res => {
         commit('addTodo', res.data)
       })
     },

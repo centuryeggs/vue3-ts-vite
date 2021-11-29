@@ -25,7 +25,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (from.path === '/addTodo') {
-    alert('注意保存哟')
+    console.log("触发路由守卫 from.path === '/addTodo' ")
   }
   next()
 })
