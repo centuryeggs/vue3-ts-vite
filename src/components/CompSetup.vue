@@ -17,7 +17,7 @@
 
   <!-- 待办事项列表 -->
   <div v-for="item in todos" :key="item.id">
-    {{item.name}}
+    {{item.title}}
   </div>
 </template>
 
@@ -51,7 +51,7 @@ store.dispatch('todos/initTodo')
 const createTodo = (todoName: string): Todo => {
   return {
     id: todos.value!.length + 1,
-    name: todoName,
+    title: todoName,
     completed: false
   }
 }

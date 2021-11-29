@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
-import Comp from './components/Comp.vue'
-import CompSetup from './components/CompSetup.vue'
+import { store } from './store';
+store.dispatch('todos/initTodo')
 </script>
 
 <script lang="ts">
@@ -12,10 +11,9 @@ export default defineComponent({
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
-  <Comp :title-info="{ value: '待办事项', color: 'green'}"></Comp>
-  <CompSetup :title-info="{ value: '待办事项', color: 'green'}"></CompSetup>
+  <router-link to="/home">首页</router-link>
+  <router-link to="/addTodo">新增待办</router-link>
+  <router-view></router-view>
 </template>
 
 <style>

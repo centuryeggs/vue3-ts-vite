@@ -17,7 +17,7 @@
 
   <!-- 待办事项列表 -->
   <div v-for="item in items" :key="item.id">
-    {{item.name}}
+    {{item.title}}
   </div>
 </template>
 
@@ -47,7 +47,7 @@ export default defineComponent({
   created() {
     this.items.push({
       id: 1,
-      name: 'Learn Vue',
+      title: 'Learn Vue',
       completed: false
     })
   },
@@ -55,7 +55,7 @@ export default defineComponent({
     createTodo(todoName: string): Todo {
       return {
         id: this.items.length + 1,
-        name: todoName,
+        title: todoName,
         completed: false
       }
     },
