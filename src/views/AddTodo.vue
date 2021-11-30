@@ -21,5 +21,9 @@ const addTodo = (): void => {
 }
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+.add-todo
+  input
+    height: 30px
+    font-size: 20px
 </style>
